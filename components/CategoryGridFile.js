@@ -8,7 +8,12 @@ import {
 } from "react-native";
 import React from "react";
 const { width, height } = Dimensions.get("window");
-export default function CategoryGridFile({ title, color }) {
+export default function CategoryGridFile({
+  onPress,
+  title,
+  color,
+  navigation,
+}) {
   return (
     <View style={styles.gridItem}>
       <Pressable
@@ -17,6 +22,7 @@ export default function CategoryGridFile({ title, color }) {
           pressed ? styles.buttonPressed : null,
         ]}
         android_ripple={{ color: "#ccc" }}
+        onPress={onPress}
       >
         <View style={[styles.innerContatiner, { backgroundColor: color }]}>
           <Text style={styles.title}>{title}</Text>
