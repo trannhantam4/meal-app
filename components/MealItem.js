@@ -7,20 +7,26 @@ import {
   Platform,
 } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 export default function MealItem({
+  id,
   title,
   imgURL,
   duration,
   complexity,
   affordability,
 }) {
+  const navigation = useNavigation();
+  function selectMealHandler() {
+    navigation.navigate("MealDetail", { mealId: id });
+  }
   return (
     <View style={styles.container}>
-      <Pressable android_ripple={{ color: "#ccc" }}>
+      <Pressable android_ripple={{ color: "#ccc" }} onPress={selectMealHandler}>
         <View>
           <Image source={{ uri: imgURL }} style={styles.image}></Image>
-          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.titleText}>{title}</Text>
         </View>
         <View style={styles.details}>
           <Text style={styles.detailsItem}>Duration: {duration}m</Text>
@@ -51,7 +57,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 250,
   },
-  title: {
+  titleText: {
     textAlign: "center",
     fontSize: 18,
     fontWeight: "bold",

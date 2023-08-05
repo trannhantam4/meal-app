@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
   gridItem: {
     flex: 1,
     margin: 16,
-    height: height * 0.25,
-
+    height: height * 0.2,
+    width: height * 0.2,
     borderRadius: 8,
     elevation: 4,
     justifyContent: "center",
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: "bold",
-    fontSize: height * 0.03,
+    fontSize: height * 0.025,
   },
   buttonPressed: {
     flex: 1,
